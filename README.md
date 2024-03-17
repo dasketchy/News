@@ -10,7 +10,7 @@ python3 -m flask --app news.py run --debug
 Built in Python with Flask.
 
 ## Setting up the Virtual Environment (only first time)
-python3 -m venv .venv 
+python3 -m venv .venv
 
 Main reason to use venv is to isolate packages (dependencies)
 
@@ -18,9 +18,7 @@ Main reason to use venv is to isolate packages (dependencies)
 ./.venv/Scripts/activate
 
 ## Install dependencies
-python3 -m pip install Flask
-python3 -m pip install newsapi-python
-
+python3 -m pip -r requirements.txt
 
 ## List all Python dependencies
 pip list
