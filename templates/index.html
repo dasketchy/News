@@ -1,5 +1,17 @@
-<h1>Hello!</h1>
+<h1>News</h1>
 
 <p>
-    This is the home page
+    Top articles:
+   <br> 
+   <ul>
+        {% for item in url_title_list %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
 </p>
+<form id="form" role="search" action="{{ url_for('search_articles') }}" method="post">
+    <input type="search" id="query" name="query"
+     placeholder="Search..."
+     aria-label="Search through site content">
+    <button>Search</button>
+</form> 
