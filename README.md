@@ -1,7 +1,9 @@
 # News
 
 ## Running the backend application
-python3 -m flask --app news run
+### Debug mode
+python3 -m flask --app news.py run --debug 
+ 
 
 ## Backend
 
@@ -16,8 +18,21 @@ Main reason to use venv is to isolate packages (dependencies)
 ./.venv/Scripts/activate
 
 ## Install dependencies
-pip install Flask
+python3 -m pip install Flask
+python3 -m pip install newsapi-python
 
 
-# List all Python dependencies
+## List all Python dependencies
 pip list
+
+
+## Submitting a change
+
+### Creating a branch
+git checkout -b "branch-name" 
+
+### Staging changes
+git add *
+
+### Commit the change
+git commit -m "some message"

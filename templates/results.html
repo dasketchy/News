@@ -1,0 +1,10 @@
+<h1> Search result for {{ query }}</h1>
+
+<p>
+   <br> 
+   <ul>
+        {% for item in url_title_list %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+</p>
