@@ -1,11 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for 
 import random
 import requests
+from src.login import USER_DATABASE
 from newsapi import NewsApiClient
+
+import secrets
+
+secret_key = secrets.token_hex(16)  # Generate a 32-character hexadecimal string (16 bytes)
 
 newsapi = NewsApiClient(api_key='25c14ea863dd4ec7996bba717388eca7')
 
 app = Flask(__name__)
+
+app.secret_key = secret_key
 
 @app.route("/")
 def home_page():
@@ -36,9 +43,23 @@ def search_articles():
 
     return render_template("results.html", url_title_list=url_title_list, query=query)
 
+@app.route("/login", methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    print(username)
+    print(password)
 
+    if username in USER_DATABASE and USER_DATABASE[username] == password:
+        session['logged_in'] = True
+        session['username'] = username
+        return redirect(url_for('home_page'))
+    else:
+        return 'Invalid username/password. Please try again.'
 
-@app.route("/login")
-def login_page():
+    return render_template("index.html")
 
-    return render_template("page.html")
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.clear()
+    return redirect(url_for('home_page'))
