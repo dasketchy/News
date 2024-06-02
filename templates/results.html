@@ -1,10 +1,23 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
 <h1> Search result for {{ query }}</h1>
 
 <p>
    <br> 
    <ul>
         {% for item in url_title_list %}
-            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        <a href="{{ item.url }}" target="_blank">
+        <div class="search-result">
+            <img src="{{ item.image_url }}" alt="{{ item.image_name }}" />
+            
+            <div class="search-result-title">{{ item.title }}</div>
+            <br>
+            <div class="search-result-description">{{ item.description }}</div>
+            <br>
+            Published on {{ item.date }} at {{ item.time }}
+        </div>
+        </a>
         {% endfor %}
     </ul>
 </p>
