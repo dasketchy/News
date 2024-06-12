@@ -36,3 +36,15 @@ git add *
 
 ### Commit the change
 git commit -m "some message"
+
+### Features to be added:
+### Logo
+### Notifications
+### UI
+- photos & links
+- formatting to organise subsections and login button
+- search bar icon (DONE, NEEDS FORMATTING)
+- organising results from news search
+### News subsections e.g sports, business etc
+### Top news on main page
+### registering an account 
