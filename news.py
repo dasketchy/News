@@ -26,7 +26,9 @@ def search_articles() -> None:
 
     articles = filter_for_only_valid_articles(response["articles"])
 
-    article_list = [get_article_details(article) for article in articles]
+    ls = [get_article_details(article) for article in articles]
+
+    article_list = []
 
     return render_template("results.html", article_list=article_list, query=query)
 
