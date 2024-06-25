@@ -17,7 +17,7 @@ def get_article_details(article: Dict[str, Any]) -> Dict[str, Any]:
 
 
 # apply filter function, keep only the valid ones
-def filter_for_only_valid_articles(articles: List[Dict[str, Any]]) -> List:
+def filter_for_only_valid_articles(articles: List[Dict[str, Any]]) -> filter:
     return filter(filter_valid_article, articles)
 
 

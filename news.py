@@ -12,8 +12,10 @@ app = Flask(__name__)
 def home_page() -> None:
     response = newsapi.get_top_headlines(language="en")
 
+    articles = list(filter_for_only_valid_articles(response["articles"]))
+
     # Show either first 10 articles, or all articles if total number of articles is less than 10
-    article_list = [get_article_details(response["articles"][i]) for i in range(min(10, len(response["articles"])))]
+    article_list = [get_article_details(articles[i]) for i in range(min(10, len(articles)))]
 
     return render_template("index.html", article_list=article_list)
 
