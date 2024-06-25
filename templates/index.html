@@ -1,47 +1,30 @@
 <h1>News</h1>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
 
-<style>
-  /* Style for the search bar container */
-  .search-container {
-    position: relative;
-    width: 300px;
-  }
-
-  /* Style for the search input */
-.search-input {
-  width: 100%; /* Adjust for icon width */
-  padding: 10px 30px 10px 10px; /* Adjust padding for icon */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-  /* Style for the search icon */
-  .search-icon {
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    color: #999;
-  }
-</style>
+<div class="search-container">
+  <form id="form" role="search" action="{{ url_for('search_articles') }}" method="post">
+    <input type="search" id="query" name="query" class="search-input" placeholder="Search..." aria-label="Search through site content" />
+    <i class="search-icon fas fa-search"></i>
+    <!-- Font Awesome search icon -->
+    <button>Search</button>
+  </form>
+</div>
 
 <p>
-    Top articles:
-   <br> 
-   <ul>
-        {% for item in url_title_list %}
-            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-        {% endfor %}
-    </ul>
+  Top articles:
+  <br />
+  {% for item in article_list %}
+  <a href="{{ item.url }}" target="_blank">
+    <div class="search-result">
+      <img src="{{ item.image_url }}" alt="{{ item.image_name }}" />
+
+      <div class="search-result-title">{{ item.title }}</div>
+      <br />
+      <div class="search-result-description">{{ item.description }}</div>
+      <br />
+      Published on {{ item.date }} at {{ item.time }}
+    </div>
+  </a>
+  {% endfor %}
 </p>
-<div class="search-container">
-<form id="form" role="search" action="{{ url_for('search_articles') }}" method="post">
-    <input type="search" id="query" name="query" class="search-input"
-     placeholder="Search..."
-     aria-label="Search through site content">
-     <i class="search-icon fas fa-search"></i> <!-- Font Awesome search icon -->
-    <button>Search</button>
-</form> 
-</div>
