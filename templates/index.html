@@ -6,24 +6,22 @@
   <form id="form" role="search" action="{{ url_for('search_articles') }}" method="post">
     <input type="search" id="query" name="query" class="search-input" placeholder="Search..." aria-label="Search through site content" />
     <i class="search-icon fas fa-search"></i>
-    <!-- Font Awesome search icon -->
-    <button>Search</button>
   </form>
 </div>
 
 <p>
-  Top articles:
+  <h>Top articles:</h>
+
   <br />
   {% for item in article_list %}
   <a href="{{ item.url }}" target="_blank">
     <div class="search-result">
       <img src="{{ item.image_url }}" alt="{{ item.image_name }}" />
-
-      <div class="search-result-title">{{ item.title }}</div>
-      <br />
-      <div class="search-result-description">{{ item.description }}</div>
-      <br />
-      Published on {{ item.date }} at {{ item.time }}
+      <div class="search-result-content">
+        <div class="search-result-title">{{ item.title }}</div>
+        <div class="search-result-description">{{ item.description }}</div>
+        <div class="search-result-meta">Published on {{ item.date }} at {{ item.time }}</div>
+      </div>
     </div>
   </a>
   {% endfor %}
