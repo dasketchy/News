@@ -1,43 +1,76 @@
 .search-result {
   display: flex;
+  align-items: flex-start;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 15px;
-  margin-bottom: 15px;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
 }
 
 .search-result:hover {
-  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Any image in the search-result class has these properties */
 .search-result img {
-  width: 120px;
-  height: 80px;
+  width: 150px;
+  height: 100px;
   object-fit: cover;
   border-radius: 5px;
-  margin-right: 15px;
+  margin-right: 20px;
 }
 
 .search-result-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-result-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0 0 10px;
   color: #333;
 }
 
 .search-result-description {
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
-  margin: 0 0 10px;
+  margin: 0 0 15px;
+  line-height: 1.4;
 }
 
 .search-result-meta {
-  font-size: 12px;
+  font-size: 14px;
   color: #999;
+  margin-top: auto;
+}
+
+.search-container {
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.search-input {
+  width: calc(100% - 40px);
+  padding: 12px 40px 12px 15px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.search-icon {
+  right: 15px;
+  font-size: 18px;
+  color: #666;
+}
+
+h {
+  font-size: 28px;
 }

@@ -41,10 +41,14 @@ git commit -m "some message"
 ### Logo
 ### Notifications
 ### UI
-- photos & links
-- formatting to organise subsections and login button
+- photos & links (DONE)
+- formatting to organise subsections (IN PROGRESS) and login button
 - search bar icon (DONE, NEEDS FORMATTING)
-- organising results from news search
+- organising results from news search (IN PROGRESS)
+    - add filters or sorting
+- figure out yahoo consent invalid url
+- format search results
+- paging
 ### News subsections e.g sports, business etc
 ### Top news on main page
 ### registering an account 
